@@ -5,9 +5,6 @@ name: PullRequest
 on:
   workflow_call:
 
-    secrets:
-      GH_TOKEN:
-        required: true
 jobs:
   updateAuthors:
     runs-on: ubuntu-latest
@@ -18,7 +15,7 @@ jobs:
       - name: Run the Action
         uses: devops-infra/action-pull-request@v0.4.2
         with:
-          github_token: GH_TOKEN
+          GH_TOKEN: GH_TOKEN
           target_branch: master
           assignee: Ashviswam
           draft: true
