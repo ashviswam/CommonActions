@@ -22,7 +22,7 @@ jobs:
       - name: Run the Action
         uses: devops-infra/action-pull-request@v0.4.2
         with:
-          GH_TOKEN: GH_TOKEN
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           target_branch: master
           assignee: Ashviswam
           draft: true
