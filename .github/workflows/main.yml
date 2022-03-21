@@ -1,0 +1,25 @@
+# This is a basic workflow to help you get started with Actions
+
+name: PullRequest
+
+on:
+  workflow_call:
+
+    secrets:
+      GH_TOKEN:
+        required: true
+jobs:
+  updateAuthors:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Run the Action
+        uses: devops-infra/action-pull-request@v0.4.2
+        with:
+          github_token: GH_TOKEN
+          target_branch: master
+          assignee: Ashviswam
+          draft: true
+          get_diff: true
